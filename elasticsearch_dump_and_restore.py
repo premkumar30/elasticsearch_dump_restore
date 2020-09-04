@@ -15,6 +15,7 @@ DATA_CMD = 'elasticdump --input=http://%(SRC_HOST)s:%(SRC_PORT)s/%(INDEX)s --out
 
 
 for index in INDICES:
+    print("Migrating %s Index..." % index)
     os.system(
         MAPPING_CMD.format({
             'SRC_HOST': SRC_HOST,
@@ -24,4 +25,5 @@ for index in INDICES:
             'INDEX': index
         })
     )
+    print("%s Index Migrated" % index)
 
